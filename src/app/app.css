@@ -1,0 +1,78 @@
+/* Layout Fix: The "Sticky Footer" Magic */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full screen height */
+  background-color: #fffafa;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #4a4a4a;
+}
+
+.main-content {
+  flex: 1; /* Grows to fill all available space, pushing footer down */
+}
+
+/* Navigation Styles */
+.navbar {
+  background: white;
+  padding: 1.5rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(255, 182, 193, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  margin: 0;
+  font-family: serif;
+  color: #592d2d;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links span {
+  cursor: pointer;
+}
+
+.nav-links .active {
+  color: #db9ea2;
+}
+
+/* Footer Styles */
+.footer {
+  background: white;
+  border-top: 1px solid #fff0f3;
+  padding: 40px 20px;
+  text-align: center;
+  color: #db9ea2;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+/* Keep your existing global resets at the bottom */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}

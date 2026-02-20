@@ -1,0 +1,13 @@
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* This hides the horizontal bar */
+  position: relative;
+}
+
+/* Force every container to stay within the lines */
+.container, .header, .products, .footer {
+  max-width: 100vw;
+  box-sizing: border-box;
+}

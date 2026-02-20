@@ -1,0 +1,52 @@
+<div class="header-section">
+  <h2>The Beauty Corner</h2>
+  <p>Soft. Pink. Radiant.</p>
+</div>
+
+<div class="shop-actions-container">
+  <div class="cart-pill">🛒 Bag: {{ cartCount }} items | Total: ₱{{ totalPrice }}</div>
+  
+  <div class="filter-dropdown">
+    <button class="dropdown-trigger" (click)="isDropdownOpen = !isDropdownOpen">
+      Categories {{ isDropdownOpen ? '▲' : '▼' }}
+    </button>
+    
+    <div class="dropdown-list" *ngIf="isDropdownOpen">
+      <button (click)="selectCategory('All')">All Products</button>
+      <button (click)="selectCategory('Lips')">Lips</button>
+      <button (click)="selectCategory('Face')">Face</button>
+      <button (click)="selectCategory('Eyes')">Eyes</button>
+    </div>
+  </div>
+</div>
+
+<div class="products-container">
+  <div *ngFor="let item of products">
+    <div class="product-card" *ngIf="selectedCategory === 'All' || item.category === selectedCategory">
+      
+      <div class="image-container">
+        <img [src]="item.img" [alt]="item.name">
+      </div>
+
+      <div class="card-info">
+        <h3>{{ item.name }}</h3>
+        <p class="price">₱{{ item.price }}.00</p>
+        
+        <p class="status available" *ngIf="item.available" style="color: #a8dadc">
+          ● Available
+        </p>
+
+        <p class="status out-of-stock" *ngIf="!item.available" style="color: #ff7096">
+          ○ Out of Stock
+        </p>
+
+        <button [disabled]="!item.available" 
+                (click)="addToCart(item)"
+                [class.disabled-btn]="!item.available">
+          {{ item.available ? 'ADD TO CART' : 'OUT OF STOCK' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
