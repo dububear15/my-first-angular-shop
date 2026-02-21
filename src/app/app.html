@@ -1,18 +1,27 @@
 <div class="app-layout">
   <nav class="navbar">
-    <h1 class="logo">{{ title }}</h1>
+    <h1 class="logo">tech<span>vault</span></h1>
     <div class="nav-links">
       <span class="active">Home</span>
       <span>Products</span>
       <span>Contact</span>
     </div>
+
+    <div class="mini-cart">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-count">{{ cartItems.length }} items</span>
+      <span class="cart-divider">|</span>
+      <span class="cart-total">₱{{ getTotal() }}</span>
+    </div>
   </nav>
 
   <div class="main-content">
-    <app-products></app-products>
+    <app-products (itemAdded)="onItemAdded($event)"></app-products>
   </div>
 
   <footer class="footer">
-    <p>&copy; 2026 {{ title }} | EST. 2026</p>
+    <div class="footer-divider"></div>
+    <p>&copy; 2026 {{ title }} | Premium Electronics</p>
   </footer>
 </div>
+
